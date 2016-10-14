@@ -136,19 +136,35 @@ public class JSplay<K extends Comparable, V> {
     
     public int size() { return size(root); }
     
+    public Node minimum() { return minimum(root); }
+    
+    public Node maximum() { return maximum(root); }
+    
     /*
         A few useful utility functions.
     */
-    private int height(Node x) 
+    private int height(Node n) 
     {
-        if (x == null) return -1;
-        return 1 + Math.max(height(x.left), height(x.right));
+        if (n == null) return -1;
+        return 1 + Math.max(height(n.left), height(n.right));
     }
     
-    private int size(Node x) 
+    private int size(Node n) 
     {
-        if (x == null) return 0;
-        else return 1 + size(x.left) + size(x.right);
+        if (n == null) return 0;
+        else return 1 + size(n.left) + size(n.right);
+    }
+    
+    private Node minimum(Node n)
+    {
+        while(n.left != null) n = n.left;
+        return n;
+    }
+    
+    private Node maximum(Node n)
+    {
+        while(n.left != null) n = n.left;
+        return n;
     }
     
     private Node rotateRight(Node r) {

@@ -12,7 +12,6 @@ package jsplay;
 public class Node<K extends Comparable<K>, V> {
     Node left;
     Node right;
-    Node parent;
     
     K key;
     V value;
